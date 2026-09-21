@@ -23,11 +23,14 @@ const CONFIG = {
   whatsappNumber: "5491100000000", // tu número real: código de país + número, sin "+" ni espacios
   whatsappMessage: "Hola! Quiero pedir un presupuesto para una pieza impresa en resina 3D.",
   email: "hola@eg3dimpresiones.com",
+  instagramHandle: "@eg3dimpresiones",
+  instagramUrl: "https://www.instagram.com/eg3dimpresiones/",
 };
 ```
 
 - `whatsappNumber`: reemplázalo por tu número real (ej. Argentina: `549` + código de área sin 0 + número, ej. `5491122334455`).
 - `email`: tu correo de contacto real.
+- `instagramHandle` / `instagramUrl`: tu usuario y link real de Instagram. Se usan en el header, el footer, la sección "Síguenos en Instagram" y el contacto.
 
 ### Otros cambios comunes
 
@@ -59,5 +62,5 @@ El sitio ya está publicado con GitHub Actions: cada push a la rama principal de
 
 - [ ] Cargar fotos reales de piezas en `img/` y reemplazar la galería.
 - [ ] Confirmar número de WhatsApp y correo definitivos.
-- [ ] Agregar enlaces a redes sociales si se van a usar (Instagram, etc.).
+- [ ] Confirmar usuario/link real de Instagram (`instagramHandle` / `instagramUrl` en `js/script.js`).
 - [ ] Registrar un dominio propio (opcional).
