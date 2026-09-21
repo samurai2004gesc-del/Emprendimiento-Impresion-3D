@@ -148,6 +148,7 @@ p { margin: 0; }
 }
 
 .logo-mark {
+  position: relative;
   display: grid;
   place-items: center;
   width: 38px;
@@ -157,8 +158,40 @@ p { margin: 0; }
   color: #fff;
   font-size: 0.95rem;
   transition: transform 0.3s ease, border-radius 0.3s ease;
+  animation: logoGlow 3s ease-in-out infinite;
+}
+.logo-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+}
+.logo-shine::after {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 45%;
+  height: 220%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: rotate(20deg);
+  animation: logoShine 3.6s ease-in-out infinite;
 }
 .logo:hover .logo-mark { transform: rotate(-8deg) scale(1.08); border-radius: 30% 70% 65% 35% / 40% 35% 65% 60%; }
+
+@keyframes logoGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 106, 43, 0); }
+  50% { box-shadow: 0 0 16px 2px rgba(255, 106, 43, 0.5); }
+}
+@keyframes logoShine {
+  0% { left: -60%; }
+  35% { left: 140%; }
+  100% { left: 140%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-mark, .logo-shine::after { animation: none; }
+}
 
 .nav {
   display: flex;
@@ -454,6 +487,7 @@ p { margin: 0; }
 .card:hover { box-shadow: var(--shadow); }
 
 .card-icon {
+  position: relative;
   display: grid;
   place-items: center;
   width: 52px;
@@ -463,8 +497,70 @@ p { margin: 0; }
   color: var(--accent-dark);
   margin-bottom: 18px;
   transition: transform 0.3s ease;
+  animation: iconGlow 3.2s ease-in-out infinite;
 }
 .card:hover .card-icon { transform: scale(1.1) rotate(-4deg); }
+
+@keyframes iconGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 106, 43, 0); }
+  50% { box-shadow: 0 0 14px 1px rgba(255, 106, 43, 0.35); }
+}
+
+/* Animaciones idle de cada ícono (independientes del hover de la tarjeta) */
+.card-icon svg { transform-box: fill-box; transform-origin: center; }
+
+.icon-anim-spin { animation: iconSpin 6s linear infinite; }
+.icon-anim-pulse { animation: iconPulse 2.4s ease-in-out infinite; }
+.icon-anim-float { animation: iconFloat 2.8s ease-in-out infinite; }
+.icon-anim-wiggle { animation: iconWiggle 3.2s ease-in-out infinite; transform-origin: bottom center; }
+.icon-anim-scan { animation: iconScan 2.2s ease-in-out infinite; }
+.icon-anim-twinkle { animation: iconTwinkle 2.6s ease-in-out infinite; }
+.icon-anim-bounce { animation: iconBounce 2.6s ease-in-out infinite; }
+.icon-anim-flow path { stroke-dasharray: 6 5; animation: iconFlowDash 1.4s linear infinite; }
+
+@keyframes iconSpin { to { transform: rotate(360deg); } }
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes iconWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-9deg); }
+  75% { transform: rotate(9deg); }
+}
+@keyframes iconScan {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+@keyframes iconTwinkle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+@keyframes iconBounce {
+  0%, 20%, 100% { transform: translateY(0); }
+  10% { transform: translateY(-5px); }
+}
+@keyframes iconFlowDash {
+  to { stroke-dashoffset: -22; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-icon,
+  .icon-anim-spin,
+  .icon-anim-pulse,
+  .icon-anim-float,
+  .icon-anim-wiggle,
+  .icon-anim-scan,
+  .icon-anim-twinkle,
+  .icon-anim-bounce,
+  .icon-anim-flow path {
+    animation: none;
+  }
+}
 
 .card h3 { font-size: 1.1rem; margin-bottom: 10px; }
 .card p { color: var(--text-muted); font-size: 0.95rem; }
