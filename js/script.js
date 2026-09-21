@@ -1,8 +1,8 @@
 // ======= CONFIGURACIÓN DEL NEGOCIO =======
-// Editá estos valores con tus datos reales.
+// Edita estos valores con tus datos reales.
 const CONFIG = {
   whatsappNumber: "5491100000000", // Reemplazar por tu número real, sin "+" ni espacios (código de país + número)
-  whatsappMessage: "Hola! Quiero pedir un presupuesto para una pieza impresa en 3D.",
+  whatsappMessage: "Hola! Quiero pedir un presupuesto para una pieza impresa en resina 3D.",
   email: "hola@eg3dimpresiones.com",
 };
 // ==========================================

@@ -236,19 +236,20 @@ p { margin: 0; }
   box-shadow: var(--shadow);
 }
 
-.print-head { animation: headMove 3s ease-in-out infinite; }
-@keyframes headMove {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(20px); }
+.resin-lift {
+  animation: resinLift 3s ease-in-out infinite;
+  transform-origin: center;
 }
-.printed-part {
-  animation: partGrow 3s ease-in-out infinite;
-  transform-origin: center bottom;
+@keyframes resinLift {
+  0%, 100% { transform: translateY(18px); }
+  50% { transform: translateY(-6px); }
 }
-@keyframes partGrow {
-  0% { transform: scaleY(0.2); opacity: 0.4; }
-  50% { transform: scaleY(1); opacity: 1; }
-  100% { transform: scaleY(0.2); opacity: 0.4; }
+.uv-glow {
+  animation: uvPulse 3s ease-in-out infinite;
+}
+@keyframes uvPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.9; }
 }
 
 /* Sections */
