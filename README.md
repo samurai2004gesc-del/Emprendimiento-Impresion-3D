@@ -28,9 +28,18 @@ const CONFIG = {
 };
 ```
 
-- `whatsappNumber`: reemplázalo por tu número real (ej. Argentina: `549` + código de área sin 0 + número, ej. `5491122334455`).
+- `whatsappNumber`: reemplázalo por tu número real (ej. México: `52` + número a 10 dígitos, ej. `5215512345678`).
 - `email`: tu correo de contacto real.
 - `instagramHandle` / `instagramUrl`: tu usuario y link real de Instagram. Se usan en el header, el footer, la sección "Síguenos en Instagram" y el contacto.
+- `pricing`: precios en MXN por gramo de cada resina, pedido mínimo y descuento por cantidad. Alimentan automáticamente la sección "Precios", la calculadora y las respuestas del bot — **son valores de referencia investigados según tarifas de mercado, ajústalos a tus costos reales.**
+
+### Precios y calculadora
+
+La sección `#precios` y la calculadora de `index.html` no tienen precios escritos a mano: todo sale de `CONFIG.pricing` en `js/script.js`. Para cambiar un precio, solo edita ese objeto — las tarjetas, el selector de la calculadora y las respuestas del bot sobre precios se actualizan solos. Los presets de tamaño (Pequeña/Mediana/Grande/Extra grande) son pesos aproximados de referencia; ajustalos en el HTML (`#sizePresets`, atributo `data-grams`) si tenés datos más precisos.
+
+### Bot de preguntas frecuentes
+
+El widget flotante (abajo a la derecha) es un bot basado en reglas, 100% gratis y sin servicios externos: busca palabras clave en lo que escribe el visitante y responde con texto predefinido (`KNOWLEDGE_BASE` en `js/script.js`). Si no reconoce la pregunta, ofrece conectar directo por WhatsApp. Para agregar o editar respuestas, buscá `KNOWLEDGE_BASE` en `js/script.js` y sumá un objeto `{ keywords: [...], answer: () => "..." }`.
 
 ### Otros cambios comunes
 
@@ -75,4 +84,5 @@ También ayuda crear un perfil de **Google My Business / Perfil de Negocio** si 
 - [ ] Cargar fotos reales de piezas en `img/` y reemplazar la galería.
 - [ ] Confirmar número de WhatsApp y correo definitivos.
 - [ ] Confirmar usuario/link real de Instagram (`instagramHandle` / `instagramUrl` en `js/script.js`).
+- [ ] Revisar los precios de `CONFIG.pricing` (son de referencia) y ajustarlos a tus costos reales.
 - [ ] Registrar un dominio propio (opcional).
