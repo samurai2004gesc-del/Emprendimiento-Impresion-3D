@@ -58,6 +58,18 @@ y visita `http://localhost:8000`.
 
 El sitio ya está publicado con GitHub Actions: cada push a la rama principal del sitio dispara el workflow `.github/workflows/deploy-pages.yml`, que construye y despliega automáticamente en GitHub Pages. No hace falta ningún paso manual adicional para actualizarlo, solo hacer commit y push de los cambios.
 
+## Aparecer en Google (SEO)
+
+El sitio ya tiene lo básico para que Google pueda indexarlo: `robots.txt`, `sitemap.xml`, meta tags Open Graph y datos estructurados (`LocalBusiness`). Pero publicar la web no la mete automáticamente en los resultados de búsqueda — eso puede tardar días o semanas. Para acelerarlo (gratis):
+
+1. Entra a [Google Search Console](https://search.google.com/search-console) con una cuenta de Google.
+2. Agrega la propiedad con la URL: `https://samurai2004gesc-del.github.io/Emprendimiento-Impresion-3D/` (tipo "Prefijo de URL").
+3. Verificá la propiedad con el método "Archivo HTML" o "Etiqueta HTML" (Search Console te da los pasos exactos).
+4. Una vez verificado, andá a "Sitemaps" y envía: `sitemap.xml`.
+5. Opcional: usá "Inspección de URLs" y pedí indexación manual de la página principal para que Google la rastree más rápido.
+
+También ayuda crear un perfil de **Google My Business / Perfil de Negocio** si el emprendimiento tiene una ubicación o zona de entrega — eso es lo que hace que aparezca en Google Maps y en búsquedas locales tipo "impresión 3D resina cerca de mí".
+
 ## Pendientes sugeridos
 
 - [ ] Cargar fotos reales de piezas en `img/` y reemplazar la galería.

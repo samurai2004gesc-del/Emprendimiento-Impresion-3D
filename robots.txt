@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samurai2004gesc-del.github.io/Emprendimiento-Impresion-3D/sitemap.xml
