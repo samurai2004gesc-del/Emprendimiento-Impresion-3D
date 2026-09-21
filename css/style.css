@@ -251,15 +251,52 @@ p { margin: 0; }
 
 .hero-visual { display: flex; justify-content: center; }
 
+.printer-card-wrap {
+  position: relative;
+  width: 280px;
+  max-width: 100%;
+}
+
+.printer-glow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle, rgba(255, 106, 43, 0.35), rgba(255, 106, 43, 0) 70%);
+  filter: blur(20px);
+  z-index: 0;
+}
+
 .printer-card {
+  position: relative;
+  z-index: 1;
   width: 280px;
   max-width: 100%;
   aspect-ratio: 1;
   background: var(--dark);
   border-radius: 24px;
   padding: 30px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 24px 50px -12px rgba(20, 22, 26, 0.45);
+  transform: rotate(-3deg);
+  transition: transform 0.35s ease;
 }
+.printer-card-wrap:hover .printer-card { transform: rotate(0deg); }
+
+.floating-badge {
+  position: absolute;
+  z-index: 2;
+  left: -18px;
+  bottom: -18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 16px 10px 12px;
+  box-shadow: var(--shadow);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.floating-badge svg { color: var(--accent-dark); flex-shrink: 0; }
 
 .resin-lift {
   animation: resinLift 3s ease-in-out infinite;
@@ -641,8 +678,9 @@ body.reveal-init .reveal.is-visible {
 /* Responsive */
 @media (max-width: 900px) {
   .hero-inner, .about-inner { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; }
-  .printer-card { width: 220px; margin: 0 auto; }
+  .hero-visual { order: -1; margin-bottom: 12px; }
+  .printer-card-wrap { width: 220px; margin: 0 auto; }
+  .printer-card { width: 220px; }
 }
 
 @media (max-width: 1040px) {
